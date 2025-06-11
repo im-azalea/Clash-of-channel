@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "api/frame.js": {
+      "runtime": "nodejs18.x"
+    }
+  }
+}
