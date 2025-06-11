@@ -6,8 +6,8 @@ const path = require('path');
 
 // -- Inisialisasi Klien & Font --
 const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
-// Menggunakan path.resolve untuk memastikan path font benar di lingkungan server
-const font = fs.readFileSync(path.resolve('./fonts/Inter-Regular.ttf'));
+// [FIX] Menggunakan path.join(process.cwd()) agar path font selalu benar di server Vercel
+const font = fs.readFileSync(path.join(process.cwd(), 'fonts', 'Inter-Regular.ttf'));
 
 module.exports = async (req, res) => {
     try {
@@ -76,7 +76,7 @@ module.exports = async (req, res) => {
                 <meta property="fc:frame:button:2" content="Latih AGI (10 XP)" />
                 <meta property="fc:frame:button:3" content="Latih INT (10 XP)" />
             </head>
-            <body><h1>Clash of Channel by [Your Name/Project]</h1></body>
+            <body><h1>Clash of Channel</h1></body>
             </html>
         `);
 
